@@ -1,0 +1,72 @@
+<svg width="400" height="400" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="bgGlow" cx="50%" cy="45%" r="65%">
+      <stop offset="0%" stop-color="#001f0a"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </radialGradient>
+    <linearGradient id="hoodieGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a1a1a"/>
+      <stop offset="100%" stop-color="#0a0a0a"/>
+    </linearGradient>
+    <filter id="softGlow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <clipPath id="circleClip">
+      <circle cx="200" cy="200" r="196"/>
+    </clipPath>
+  </defs>
+
+  <!-- outer ring -->
+  <circle cx="200" cy="200" r="196" fill="#000000" stroke="#00ff41" stroke-width="8"/>
+
+  <g clip-path="url(#circleClip)">
+    <rect x="0" y="0" width="400" height="400" fill="url(#bgGlow)"/>
+
+    <!-- faint matrix code specks in background -->
+    <g font-family="Consolas, monospace" font-size="13" fill="#00ff41" opacity="0.25">
+      <text x="20" y="40">01ｱｳｴ1</text>
+      <text x="300" y="60">ｶｷｸ01</text>
+      <text x="30" y="360">1ｹｺｻ0</text>
+      <text x="290" y="340">ｼｽｾ10</text>
+      <text x="10" y="200">ｿﾀﾁ01</text>
+      <text x="330" y="200">ﾂﾃﾄ10</text>
+    </g>
+
+    <!-- shoulders / hoodie body -->
+    <path d="M 60 400 Q 60 260 200 250 Q 340 260 340 400 Z" fill="url(#hoodieGrad)" stroke="#00ff41" stroke-width="2" opacity="0.95"/>
+
+    <!-- hood -->
+    <path d="M 120 260 Q 110 150 200 130 Q 290 150 280 260 Q 260 230 200 225 Q 140 230 120 260 Z" fill="#161616" stroke="#00ff41" stroke-width="2"/>
+
+    <!-- face shadow area -->
+    <ellipse cx="200" cy="225" rx="62" ry="58" fill="#050505"/>
+
+    <!-- glowing glasses/eyes -->
+    <g filter="url(#softGlow)">
+      <rect x="165" y="210" width="28" height="14" rx="4" fill="#00ff41"/>
+      <rect x="207" y="210" width="28" height="14" rx="4" fill="#00ff41"/>
+      <rect x="193" y="214" width="14" height="5" fill="#00ff41"/>
+    </g>
+
+    <!-- hood drawstrings -->
+    <line x1="180" y1="270" x2="176" y2="310" stroke="#00ff41" stroke-width="2" opacity="0.7"/>
+    <line x1="220" y1="270" x2="224" y2="310" stroke="#00ff41" stroke-width="2" opacity="0.7"/>
+    <circle cx="176" cy="313" r="3" fill="#00ff41" opacity="0.7"/>
+    <circle cx="224" cy="313" r="3" fill="#00ff41" opacity="0.7"/>
+
+    <!-- laptop glow from below -->
+    <path d="M 130 400 L 150 350 L 250 350 L 270 400 Z" fill="#0d0d0d" stroke="#00ff41" stroke-width="1.5" opacity="0.9"/>
+    <rect x="155" y="352" width="90" height="6" fill="#00ff41" opacity="0.35">
+      <animate attributeName="opacity" values="0.2;0.6;0.2" dur="1.8s" repeatCount="indefinite"/>
+    </rect>
+
+    <!-- scanline sweep -->
+    <rect x="0" y="0" width="400" height="6" fill="#00ff41" opacity="0.12">
+      <animate attributeName="y" from="0" to="400" dur="3s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+</svg>
